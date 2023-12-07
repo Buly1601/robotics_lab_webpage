@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/projects.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+<div class="row-padding">
+    {% for item in items %}
+      <div class="third container margin-bottom">
+        <img src="{{ item.image }}" alt="{{ item.alt }}" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>{{ item.title }}</b></p>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>  
+
+{% endblock %}
