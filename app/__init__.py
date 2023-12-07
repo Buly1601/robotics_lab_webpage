@@ -22,3 +22,55 @@ def admin():
         pass
     else:
         return "INVALID", 501
+
+
+@app.route("/projects", methods=["POST", "GET"])
+def projects():
+    """
+    This section will host projects made in the lab.
+    Each project will be modified only by the admin.
+    TODO
+    - database
+    """
+    items = [
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '1Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        },
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '2Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        },
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '3Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        },
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '1Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        },
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '2Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        },
+        {
+            'image': './static/img/admin_logo.jpg',
+            'alt': 'Norway',
+            'title': 'Lorem Ipsum',
+            'description': '3Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.'
+        }
+    ]
+    
+    if request.method == "GET":
+        return render_template("projects.html", title="Poyectos realizados en el laboratorio", url=os.getenv("URL"), items=items)
+    
